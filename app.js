@@ -24,9 +24,12 @@ app.use(function(req, res, next) {
 	console.log(req.method, req.path, res.statusCode);
 	next();
 })
+
 app.use('/', router);
 
-app.use(Express.static('public'));
+app.use(Express.static(__dirname + '/public'));
+app.use(Express.static(__dirname + '/node_modules/bootstrap/dist'));
+app.use(Express.static(__dirname + '/node_modules/jquery/dist'));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
