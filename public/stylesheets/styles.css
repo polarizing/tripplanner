@@ -1,0 +1,250 @@
+@import url(https://fonts.googleapis.com/css?family=Luckiest+Guy);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+/* http://stackoverflow.com/questions/11124777/twitter-bootstrap-navbar-fixed-top-overlapping-site */
+html, body {
+   height: 100vh;
+   width: 100%;
+}
+/*body {
+	overflow-y: hidden;
+}*/
+
+.navbar-brand {
+	padding: 10px 15px 0px 15px;
+}
+
+.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+	margin-left: 0px;
+}
+
+.navbar-default .navbar-brand {
+	font-family: 'Luckiest Guy', cursive;
+	color: black ;
+	font-size: 22px;
+	letter-spacing: 3px;
+	line-height:1;
+}
+
+#logo-subtext {
+	font-size: 12px;
+	font-family: 'Open Sans', sans-serif;
+	text-transform: lowercase;
+	letter-spacing: .1em;
+	margin-left: 30px;
+	margin-top: -4px;
+}
+
+.fa.fa-map-marker.fa-lg {
+	vertical-align: -25%;
+}
+
+#map-canvas {
+	min-height: 100vh;
+}
+
+.sidebar {
+	height:100vh;
+	background: #293137;
+	padding-left:0;
+	max-height: 100%;
+	overflow-y: auto;
+}
+
+.trip-select {
+/*	background: rgba(235, 59, 59, 0.6);
+*/	background: #7d8e9b;
+	padding-bottom: 10px;
+	position: relative;
+	min-height: 100%;
+}
+
+.trip-options {
+	margin-top: 60px;
+}
+
+.ui.selection.dropdown {
+	border:none;
+    border-radius: 0px;
+    width: 100%;
+}
+
+.trip-menu {
+	    background: #293137;
+
+    z-index: 8;
+/*    position: fixed; 
+*//*	max-width: 50px;
+*/  box-shadow: inset -1px 0px 1px #1c2125;
+    border-right: 1px solid #030405;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.trip-menu ul {
+	margin-top: 50px;
+	padding: 0px;
+	list-style-type: none;
+}
+
+.trip-menu ul li a {
+	font-weight: normal;
+	font-size: 22px;
+	padding: 25px 5px 25px 16px;
+	border-top: 1px solid #3e3e3e;
+	border-bottom: 1px solid #3e3e3e;
+	display: block;
+	margin-bottom: -1px;
+	color: #c7eaf9;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	position: relative;
+}
+
+.trip-menu ul li a i {
+	color: #44535e;
+	padding-left: calc(50% - 1em)
+}
+
+.trip-menu ul li a:hover > i {
+	color: #c7eaf9;
+}
+
+.trip-menu ul li a.focus > i {
+	color: #c7eaf9;
+}
+
+.trip-menu ul li a {
+    background: #20272c;
+    
+    color: #c7eaf9;
+    text-decoration: none;
+}
+
+.ui.card {
+	width:100%;
+}
+
+a.focus {
+	background: #20272c;
+}
+
+
+/* ITINERARY MENU BUTTONS */
+.btn-circle {
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	background: #7d8e9b;
+	display:inline-block;
+	color: #c7eaf9;
+	font-size: 14px;
+	padding-left: 8px;
+	padding-top: 2px;
+	position:absolute;
+	left: calc(50% - 1em);
+	top: calc(50% - 1em);
+}
+
+/*
+.itinerary-menu ul li a i {
+	color: #44535e;
+}
+*/
+
+#itinerary-menu {
+	margin-top: 200px;
+}
+
+.itinerary-button-item {
+	padding-left: calc(50% - 1em);
+}
+
+.trip-menu ul li a:hover > span {
+	background: rgb(196, 230, 245);
+	color: #293137;
+}
+
+
+.fa.fa-cutlery {
+	margin-left:3px;
+}
+
+.container-fluid {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.ui.feed>.event>.content .summary {
+	font-weight: 400;
+}
+
+.ui.mini.rating {
+	float: right;
+	margin-top: 5px;
+}
+
+
+/* GOOGLE MAPS */
+#map-canvas {
+	height: 100%;
+}
+
+
+
+
+/* MOBILE RESPONSIVENESS */
+/*=====================================================
+=            Bootstrap 2.3.2 Media Queries            =
+=====================================================*/
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px){
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px){
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px){
+	.container-fluid {
+
+	}
+	.sidebar {
+		overflow-y: visible;
+		height: 100%;
+		padding: 0 15px;
+	}
+	.trip-options {
+		margin-top: 25px;
+	}
+	.trip-select {
+		padding-bottom: 20px;
+	}
+	.navbar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
+		margin-left:10px;
+	}
+	.navbar-toggle {
+		margin-right: 25px;
+	}
+	#itinerary-menu {
+		margin-top: 0px;
+	}
+}
+
+
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px){
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px){
+
+}
+

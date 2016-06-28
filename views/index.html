@@ -1,37 +1,180 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Trip Planner</title>
-</head>
-<body>
-	<div class="container">
+{% extends "layout.html" %}
 		{% block content %}
+		  <!-- Fixed navbar -->
+		  <div class="navbar navbar-default navbar-fixed-top">
+		    <div class="container-fluid">
+		      <div class="navbar-header">
+		        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		          <span class="icon-bar"></span>
+		        </button>
+		        <a class="navbar-brand logo-text" href="#"><i class="fa fa-map-marker fa-lg" aria-hidden="true"></i>
 
-		<select name="hotels">
+Trip It<p id="logo-subtext">Trip Planner</p></a>
+		      </div>
+		      <div class="collapse navbar-collapse">
+		        <ul class="nav navbar-nav">
+		          <li class="active"><a href="#">Home</a></li>
+		          <li><a href="#about">About</a></li>
+		          <li><a href="#contact">Contact</a></li>
+		          
+		        </ul>
+		      </div><!--/.nav-collapse -->
+		    </div>
+		  </div>
+		  <div class="container-fluid">
+			<div class="row">
+					<!-- GOOGLE MAP CANVAS -->
+				<div class="col-md-8 col-sm-7 col-xs-12 map" id="map-canvas"></div>
+				<div class="col-md-4 col-sm-5 col-xs-12 sidebar">
+					<!-- SELECT / PLAN ITINERARY CARDS-->
+					<a name="anchor"></a>
 
-				{% for hotel in hotels%}
-					<option value="{{hotel.name}}">{{hotel.name}}</option>
-				{% endfor %}
+					<div class="col-md-10 col-sm-10 col-xs-12 trip-select">
+						<div class="trip-options">
+							<!-- BEGIN DROPDOWN --> 
+							<div class="trip-option-hotel">
+								<select class="ui search dropdown" name="hotels">
+										<option value="">Select Hotel</option>
+										{% for hotel in hotels%}
+											<option value="{{hotel.name}}">{{hotel.name}}</option>
+										{% endfor %}
+								</select>
+							</div>
+							<div class="trip-option-restaurant" style="display: none">
+								<select class="ui search dropdown" name="restaurants">
+										<option value="">Select Restaurant</option>
 
-		</select>
+										{% for restaurant in restaurants%}
+											<option value="{{restaurant.name}}">{{restaurant.name}}</option>
+										{% endfor %}
 
-		<select name="restaurants">
+								</select>
+							</div>
+							<div class="trip-option-activities" style="display:none">
+								<select class="ui search dropdown" name="activities">
+										<option value="">Select Activities</option>
 
-				{% for restaurant in restaurants%}
-					<option value="{{restaurant.name}}">{{restaurant.name}}</option>
-				{% endfor %}
+										{% for activity in activities%}
+											<option value="{{activity.name}}">{{activity.name}}</option>
+										{% endfor %}
 
-		</select>
+								</select>
+							</div>
+							<!-- END DROPDOWN --> 
 
-		<select name="activities">
+							<!-- Hotel / Restaurant / Activity Card View-->
 
-				{% for activity in activities%}
-					<option value="{{activity.name}}">{{activity.name}}</option>
-				{% endfor %}
+							<div class="ui card">
+							  <div class="image">
+							    <img src="https://farm3.staticflickr.com/2384/2269200013_25b2d2c18d_o.jpg">
+							  </div>
+							  <div class="content">
+							    <a class="header"><div class="ui mini star rating" data-rating="4" data-max-rating="5" style="inline-block"></div>
+The Holbrook Motel</a>
 
-		</select>
-		{% endblock %}
+							    <div class="meta">
+							      <span class="details">212 W MAIN ST, GRASS VALLEY, CA 95945</span>
+							    </div>
 
-	</div>
-</body>
-</html>
+							    <div class="description">
+									On par with The Ritz-Carlton.
+								</div>
+							  </div>
+							  <div class="extra content">
+
+							    <div class="ui two buttons">
+							        <div class="ui basic green button">Add to Itinerary</div>
+							        <div class="ui basic red button">I'm feeling lucky!</div>
+							      </div>
+							  </div>
+
+							</div> 
+
+							<!-- PLAN ITINERARY / ITINERARY CARD--> 
+							<div class="ui card">
+							  <div class="content">
+							    <div class="header">Your Day Itinerary</div>
+							  </div>
+							  <div class="content">
+							    <h4 class="ui sub header">Hotel</h4>
+							    <div class="ui small feed">
+								     <div class="event">
+								        <div class="content">
+								          <div class="summary">
+								             You are going to catch some zzzz's at the <a>Andaz Wall Street</a> hotel.
+								          </div>
+								        </div>
+								      </div>
+							      </div>	
+							      <h4 class="ui sub header">Restaurants</h4>
+							      <div class="ui small feed">
+								     <div class="event">
+								        <div class="content">
+								          <div class="summary">
+								             You added <a>The Capital Grille</a> to your list of restaurants. Yum!
+								          </div>
+								        </div>
+								      </div>
+							      </div>
+							       <h4 class="ui sub header">Activities</h4>
+							      <div class="ui small feed">
+								     <div class="event">
+								        <div class="content">
+								          <div class="summary">
+								             You added the <a>Strand Bookstore</a> as a place of interest!
+								          </div>
+								          <div class="summary">
+								             You added the <a>Chinatown Ice Cream Factory</a> as a place of interest!
+								          </div>
+								          <div class="summary">
+								             You do know most people don't consider going to the <a>Apple Store</a> an activity, right?
+								          </div>
+								        </div>
+								      </div>
+							      </div>		
+
+
+							  </div>
+							  <div class="extra content">
+	<!-- 						    <button class="ui button">Confirm Itinerary</button>
+							  	<button class="ui button">Clear Itinerary</button> -->
+					    		<div class="ui two buttons">
+							        <div class="ui green button">Confirm Itinerary</div>
+							        <div class="ui button">Clear Itinerary</div>
+							      </div>
+							  </div>
+							</div>
+						</div> 
+					</div>
+					<!-- End SELECT/PLAN ITINERARY CARDS-->
+					<!-- BEGIN TRIP-MENU ICONS / ITINERARY MENU -->
+					<div class="col-md-2 col-sm-2 col-xs-12 trip-menu">
+					<ul>
+						<li class="menu-option-hotel">
+							<a class="focus trip-menu-item" href="#anchor"><i class="fa fa-bed" aria-hidden="true"></i></a>
+						</li>
+						<li class="menu-option-restaurant">
+							<a class="trip-menu-item" href="#anchor"><i class="fa fa-cutlery" aria-hidden="true"></i></a>
+						</li>
+						<li class="menu-option-activities">
+							<a class="trip-menu-item" href="#anchor"><i class="fa fa-futbol-o" aria-hidden="true"></i></a>
+						</li>
+
+					</ul>
+					<ul id="itinerary-menu">
+						<li class="itinerary-button">
+							<a class="focus itinerary-button-item" href="#"><span class="btn-circle">1</span></a>
+						</li>
+						<li class="itinerary-button">
+							<a class="itinerary-button-item" href="#"><span class="btn-circle">+</span></a>
+						</li>
+					</ul>
+					</div>
+					<!-- END TRIP-MENU ICONS / ITINERARY MENU -->
+
+				</div>
+			</div>
+		</div>
+{% endblock %}
